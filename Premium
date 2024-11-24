@@ -346,8 +346,9 @@ local function killBossBear()
             -- Aplica o dano
             game:GetService("ReplicatedStorage").jdskhfsIIIllliiIIIdchgdIiIIIlIlIli:FireServer(humanoid, 1)
         else
-            -- Se o boss não estiver mais na cena, sai do loop
-            break
+            -- Se o boss não estiver mais na cena, espera o boss reaparecer
+            boss = workspace:WaitForChild("NPC"):WaitForChild("BOSSBEAR")
+            humanoid = boss:WaitForChild("Humanoid")
         end
         wait() -- Aguarda 0 segundo antes de tentar novamente
     end
